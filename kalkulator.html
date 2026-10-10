@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalkulator Kalori - I Komang Omentara</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body class="text-gray-800 bg-gray-100">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="bg-white shadow-sm">
+
+        <div
+            class="flex flex-col items-center justify-between max-w-6xl gap-4 px-5 py-4 mx-auto sm:flex-row">
+
+            <!-- Logo -->
+            <a
+                href="./index.html"
+                class="text-xl font-bold text-green-600 transition hover:text-green-700">
+
+                OMEN.
+
+            </a>
+
+
+            <!-- Menu -->
+            <div
+                class="flex flex-wrap justify-center gap-4 text-sm sm:gap-6 sm:text-base">
+
+                <a
+                    href="./index.html"
+                    class="transition hover:text-green-600">
+
+                    Home
+
+                </a>
+
+
+                <a
+                    href="./about.html"
+                    class="transition hover:text-green-600">
+
+                    About
+
+                </a>
+
+
+                <a
+                    href="./projects.html"
+                    class="font-semibold text-green-600">
+
+                    Project
+
+                </a>
+
+
+                <a
+                    href="./contact.html"
+                    class="transition hover:text-green-600">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= KALKULATOR ================= -->
+    <main class="max-w-3xl px-5 mx-auto py-14 sm:py-20">
+
+
+        <!-- Heading -->
+        <div class="mb-10 text-center">
+
+            <p class="font-semibold tracking-wide text-green-600">
+                PROJECT DEMO
+            </p>
+
+            <h1 class="mt-2 text-3xl font-bold sm:text-4xl">
+                Kalkulator Kalori
+            </h1>
+
+            <p class="max-w-xl mx-auto mt-4 leading-7 text-gray-600">
+                Masukkan data tubuh untuk menghitung
+                kebutuhan kalori dasar harian.
+            </p>
+
+        </div>
+
+
+        <!-- ================= CALCULATOR BOX ================= -->
+        <div class="p-6 bg-white shadow-sm rounded-2xl sm:p-8">
+
+            <div class="grid gap-5 md:grid-cols-2">
+
+
+                <!-- Umur -->
+                <div>
+
+                    <label
+                        for="umur"
+                        class="block mb-2 font-medium">
+
+                        Umur
+
+                    </label>
+
+                    <input
+                        id="umur"
+                        type="number"
+                        placeholder="Contoh: 20"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                </div>
+
+
+                <!-- Berat -->
+                <div>
+
+                    <label
+                        for="berat"
+                        class="block mb-2 font-medium">
+
+                        Berat Badan (kg)
+
+                    </label>
+
+                    <input
+                        id="berat"
+                        type="number"
+                        placeholder="Contoh: 60"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                </div>
+
+
+                <!-- Tinggi -->
+                <div>
+
+                    <label
+                        for="tinggi"
+                        class="block mb-2 font-medium">
+
+                        Tinggi Badan (cm)
+
+                    </label>
+
+                    <input
+                        id="tinggi"
+                        type="number"
+                        placeholder="Contoh: 170"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                </div>
+
+
+                <!-- Gender -->
+                <div>
+
+                    <label
+                        for="gender"
+                        class="block mb-2 font-medium">
+
+                        Jenis Kelamin
+
+                    </label>
+
+                    <select
+                        id="gender"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+                        <option value="pria">
+                            Laki-laki
+                        </option>
+
+                        <option value="wanita">
+                            Perempuan
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Button -->
+            <button
+                type="button"
+                onclick="hitungKalori()"
+                class="w-full px-6 py-3 mt-6 font-semibold text-white transition bg-green-600 rounded-lg hover:bg-green-700">
+
+                Hitung Kalori
+
+            </button>
+
+
+            <!-- Hasil -->
+            <div
+                id="hasil"
+                class="hidden p-5 mt-6 rounded-lg bg-green-50">
+
+                <p class="font-semibold text-green-700">
+                    Hasil Perhitungan
+                </p>
+
+                <p
+                    id="hasilKalori"
+                    class="mt-2 text-xl font-bold text-green-700 sm:text-2xl">
+                </p>
+
+            </div>
+
+
+            <!-- Kembali -->
+            <div class="mt-6 text-center">
+
+                <a
+                    href="./projects.html"
+                    class="text-sm font-semibold text-green-600 hover:underline">
+
+                    ← Kembali ke Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+        class="py-6 text-sm text-center text-gray-500 bg-white">
+
+        <p>
+            © 2026 I Komang Omentara. All Rights Reserved.
+        </p>
+
+        <p class="mt-2">
+            Mahasiswa Ilmu Komputer
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        function hitungKalori() {
+
+            let umur =
+                Number(document.getElementById("umur").value);
+
+            let berat =
+                Number(document.getElementById("berat").value);
+
+            let tinggi =
+                Number(document.getElementById("tinggi").value);
+
+            let gender =
+                document.getElementById("gender").value;
+
+
+            // Validasi
+            if (!umur || !berat || !tinggi) {
+
+                alert("Silakan isi semua data.");
+
+                return;
+            }
+
+
+            let kalori;
+
+
+            // Laki-laki
+            if (gender === "pria") {
+
+                kalori =
+                    (10 * berat) +
+                    (6.25 * tinggi) -
+                    (5 * umur) +
+                    5;
+
+            }
+
+            // Perempuan
+            else {
+
+                kalori =
+                    (10 * berat) +
+                    (6.25 * tinggi) -
+                    (5 * umur) -
+                    161;
+
+            }
+
+
+            // Pembulatan
+            kalori = Math.round(kalori);
+
+
+            // Tampilkan hasil
+            document.getElementById("hasilKalori").innerText =
+                kalori + " kalori / hari";
+
+
+            document.getElementById("hasil")
+                .classList.remove("hidden");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
